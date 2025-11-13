@@ -1,4 +1,5 @@
 import React from "react";
+import { FiEdit } from "react-icons/fi";
 import type { CustomNodeProps } from ".";
 import { NODE_DIMENSIONS } from "../../../../../constants/graph";
 import type { NodeData } from "../../../../../types/graph";
@@ -34,20 +35,31 @@ const Row = ({ row, x, y, index }: RowProps) => {
   );
 };
 
-const Node = ({ node, x, y }: CustomNodeProps) => (
-  <Styled.StyledForeignObject
-    data-id={`node-${node.id}`}
-    width={node.width}
-    height={node.height}
-    x={0}
-    y={0}
-    $isObject
-  >
-    {node.text.map((row, index) => (
-      <Row key={`${node.id}-${index}`} row={row} x={x} y={y} index={index} />
-    ))}
-  </Styled.StyledForeignObject>
-);
+const Node = ({ node, x, y }: CustomNodeProps) => {
+  const handleEditClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // TODO: Implement edit functionality
+    console.log("Edit button clicked for node:", node.id);
+  };
+
+  return (
+    <Styled.StyledForeignObject
+      data-id={`node-${node.id}`}
+      width={node.width}
+      height={node.height}
+      x={0}
+      y={0}
+      $isObject
+    >
+      <Styled.StyledEditButton onClick={handleEditClick} title="Edit">
+        <FiEdit size={14} />
+      </Styled.StyledEditButton>
+      {node.text.map((row, index) => (
+        <Row key={`${node.id}-${index}`} row={row} x={x} y={y} index={index} />
+      ))}
+    </Styled.StyledForeignObject>
+  );
+};
 
 function propsAreEqual(prev: CustomNodeProps, next: CustomNodeProps) {
   return (

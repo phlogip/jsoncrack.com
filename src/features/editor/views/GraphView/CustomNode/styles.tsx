@@ -99,3 +99,29 @@ export const StyledChildrenCount = styled.span`
   padding: 10px;
   margin-left: -15px;
 `;
+
+export const StyledEditButton = styled.button`
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: ${({ theme }) => theme.BACKGROUND_MODIFIER_ACCENT};
+  border: 1px solid ${({ theme }) => theme.NODE_COLORS.DIVIDER};
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: all 0.2s ease;
+  color: ${({ theme }) => theme.NODE_COLORS.TEXT};
+
+  &:hover {
+    background: ${({ theme }) => theme.INTERACTIVE_HOVER};
+    border-color: ${({ theme }) => theme.TEXT_NORMAL};
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
