@@ -104,8 +104,8 @@ export const StyledEditButton = styled.button`
   position: absolute;
   top: 4px;
   right: 4px;
-  background: ${({ theme }) => theme.BACKGROUND_MODIFIER_ACCENT};
-  border: 1px solid ${({ theme }) => theme.NODE_COLORS.DIVIDER};
+  background: #3B82F6;
+  border: 1px solid #2563EB;
   border-radius: 4px;
   padding: 4px;
   cursor: pointer;
@@ -114,11 +114,11 @@ export const StyledEditButton = styled.button`
   justify-content: center;
   pointer-events: all;
   transition: all 0.2s ease;
-  color: ${({ theme }) => theme.NODE_COLORS.TEXT};
+  color: white;
 
   &:hover {
-    background: ${({ theme }) => theme.INTERACTIVE_HOVER};
-    border-color: ${({ theme }) => theme.TEXT_NORMAL};
+    background: #2563EB;
+    border-color: #1D4ED8;
   }
 
   &:active {
